@@ -9,12 +9,18 @@ body {
   overflow: auto;
 }
 
+
+.tooltip {
+  padding-bottom: -70px;
+  padding-top: -70px;
+}
+
+
 #tooltip > .tooltip-inner {
-  width: 200px;
+  max-width: 300px;
   background-color: #EFEEEE;
   color: black;
   border: 1px solid #BDBDBD;
-
 }
 
 #tooltip > .tooltip-arrow{
@@ -30,4 +36,3 @@ button {
   padding-bottom: 2.5px
 
 }
-
