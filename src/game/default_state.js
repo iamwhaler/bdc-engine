@@ -6,27 +6,29 @@ import {genTarget} from '../game/targets';
 
 const default_state = {
 
-    ideas: 1000,
-    cards: 0,
-    decks: 0,
-    games: 0,
+    strings: 1000,
 
-    ideas_rule: 0,
-    cards_rule: 0,
-    decks_rule: 0,
-    games_rule: 0,
+    up_quarks: 0,
+    down_quarks: 0,
+    electrons: 0,
 
-    ideas_clicker: 0,
-    cards_clicker: 0,
-    decks_clicker: 0,
-    games_clicker: 0,
+    strings_rule: 0,
+    up_quarks_rule: 0,
+    down_quarks_rule: 0,
+    electrons_rule: 0,
 
-    ideas_miner: 0,
-    cards_miner: 0,
-    decks_miner: 0,
-    games_miner: 0,
+    strings_clicker: 0,
+    up_quarks_clicker: 0,
+    down_quarks_clicker: 0,
+    electrons_clicker: 0,
 
-    thinking: false,
+    strings_miner: 0,
+    up_quarks_miner: 0,
+    down_quarks_miner: 0,
+    electrons_miner: 0,
+
+    fluctuating: false,
+
     drawing: false,
     making: false,
     packing: false,
@@ -41,6 +43,7 @@ const default_state = {
         armor: 1000,
         stamina: 1000
     },
+
     weapon: genModuleState('weapon'),
     repairer: genModuleState('repairer'),
     target: genTarget(1),
@@ -49,7 +52,6 @@ const default_state = {
     armor_upgrade: 0,
 
     mode: 'slow',
-    matrix_show: '',
 
 
 

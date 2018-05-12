@@ -1,31 +1,32 @@
 //import _ from 'lodash';
 
 export const clickers = {
-    ideas_clicker: {
-        name: 'Think Ideas', cost: false, locked: (state) => !state.thinking, onClick: (state) => {
-            state.ideas++;
+    strings_clicker: {
+        name: 'Fluctuate string', cost: false, locked: (state) => !state.fluctuating, onClick: (state) => {
+            state.strings++;
             return state;
         }
     },
-    cards_clicker: {
-        name: 'Draw Cards',
-        cost: {ideas: 4},
+
+    up_quarks_clicker: {
+        name: 'Gain Up Quark',
+        cost: {strings: 4},
         text: 'Information about Cards resource which also explains its functionality. Information about Cards resource which also explains its functionality',
         locked: (state) => !state.drawing,
         onClick: (state) => {
-            state.cards++;
+            state.up_quarks++;
             return state;
         }
     },
-    decks_clicker: {
-        name: 'Make Decks', cost: {cards: 4}, locked: (state) => !state.making, onClick: (state) => {
-            state.decks++;
+    down_quarks_clicker: {
+        name: 'Gain Down Quark', cost: {up_quarks: 4}, locked: (state) => !state.making, onClick: (state) => {
+            state.down_quarks++;
             return state;
         }
     },
-    games_clicker: {
-        name: 'Pack Games', cost: {decks: 4}, locked: (state) => !state.packing, onClick: (state) => {
-            state.games++;
+    electrons_clicker: {
+        name: 'Gain Electron', cost: {down_quarks: 4}, locked: (state) => !state.packing, onClick: (state) => {
+            state.electrons++;
             return state;
         }
     }

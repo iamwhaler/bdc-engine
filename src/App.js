@@ -192,10 +192,6 @@ class App extends Component {
                             </div>
                     )}
 
-                    <div className="flex-element">
-                        {this.state.matrix_show}
-                    </div>
-
 
                 </div>
 

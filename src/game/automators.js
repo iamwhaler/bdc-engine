@@ -1,9 +1,26 @@
-
 import _ from 'lodash';
 
 export const automators = {
-    ideas_miner: {name: 'Ideas Miner', cost: {ideas: 8}, locked: (state) => !state.creativity,  onClick: (state) => { state.ideas_miner++; return state; }, onTick: (state) => { state.ideas += _.random(0, state.ideas_miner); return state; }},
-    cards_miner: {name: 'Cards Miner', cost: {cards: 8}, locked: (state) => !state.design,      onClick: (state) => { state.cards_miner++; return state; }, onTick: (state) => { state.cards += Math.round(_.random(0, state.cards_miner/2)); return state; }},
-    decks_miner: {name: 'Decks Miner', cost: {decks: 8}, locked: (state) => !state.producing,   onClick: (state) => { state.decks_miner++; return state; }, onTick: (state) => { state.decks += Math.round(_.random(0, state.decks_miner/4)); return state; }},
-    games_miner: {name: 'Games Miner', cost: {games: 8}, locked: (state) => !state.selling,     onClick: (state) => { state.games_miner++; return state; }, onTick: (state) => { state.games += Math.round(_.random(0, state.games_miner/8)); return state; }}
+    strings_miner: {
+        name: 'Strings Miner',
+        cost: {strings: 10},
+        locked: (state) => state.creativity,
+        onClick: (state) => {
+            state.strings_miner++;
+            return state;
+        },
+        onTick: (state) => {
+            state.strings += _.random(0, state.strings_miner);
+            return state;
+        }
+    },
+    up_quarks_miner: {
+        name: 'Up Quarks Miner', cost: {up_quarks: 8}, locked: (state) => !state.design, onClick: (state) => {
+            state.up_quarks_miner++;
+            return state;
+        }, onTick: (state) => {
+            state.up_quarks += Math.round(_.random(0, state.up_quarks_miner / 2));
+            return state;
+        }
+    }
 };

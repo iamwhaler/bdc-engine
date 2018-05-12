@@ -8,7 +8,7 @@ export const genTarget = (level) => {
         armor: 10 * level + 5 * level % 2,
         armor_current: 10 * level + 5 * level % 2,
         dmg: 1 * level,
-        reward: {cards: 420 * level},
+        reward: {up_quarks: 420 * level},
         onTick: 'shotAtPlayer',
         modules: []
     };
