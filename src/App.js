@@ -191,21 +191,20 @@ class App extends Component {
                                 </OverlayTrigger>
                             </div>
                     )}
-
-
                 </div>
 
-                <h2>BDC Engine Test App</h2>
+                <h2>Particles Inkremental</h2>
 
                 <div className="flex-container-row">
                     <div className="flex-element">
-                        <h3>Data</h3>
+                        <h3>Resources</h3>
                         { _.map(data, (item, key) =>
                             <div key={key}>
                                 {item.name}: {state[key]}
                             </div>
                         )}
                     </div>
+
                     <div className="flex-element">
                         <h3>OneClickers</h3>
                         {_.map(oneclickers, (item, key) =>
