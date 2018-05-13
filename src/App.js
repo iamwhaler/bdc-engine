@@ -264,7 +264,7 @@ class App extends Component {
                     </div>
                 </div>
 
-                <div className="flex-container-row">
+                 <div className="flex-container-row">
 
                     <div className="flex-element flex-container-column" style={{height: '100%'}}>
                         <div className="flex-element flex-container-row">
@@ -324,6 +324,7 @@ class App extends Component {
 
                 </div>
 
+
                 <div className="flex-element flex-container-row">
                     <div className="flex-element">
                         <h2>Defence</h2>
@@ -339,6 +340,7 @@ class App extends Component {
                         <h4>Armor: {this.state.target.armor_current} / {this.state.target.armor}</h4>
                     </div>
                 </div>
+
 
             <Footer newGame={this.newGame}/>
             </div>
