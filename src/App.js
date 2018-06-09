@@ -97,7 +97,6 @@ class App extends Component {
         if (item.cost) {
             if (this.isEnough(this.state, item.cost)) {
                 if (item.onClick) this.setState(item.onClick(this.chargeCost(this.state, item.cost)));
-
             }
             else { return false; }
         }
@@ -148,17 +147,21 @@ class App extends Component {
         const tooltip = (state, item) =>
             <Tooltip id="tooltip">
                 <div className="col-lg-12 infoBar">
-                    {item.name}
+                    <span>{item.name}</span>
                     <br />
-                    {item.text ? item.text : ''}
+                    <span style={{fontSize: '10px'}}> {item.text ? item.text : ''}</span>
                 </div>
 
-                {_.map(item.cost, (value, resource_key) => {
-                    return <div className="row" key={resource_key}>
-                        <div className="col-sm-6 infoBar">{resource_key}</div>
-                        <div className="col-sm-6 infoBar">{state[resource_key]} / {value}</div>
-                    </div>
-                })}
+                 {_.map(item.cost, (value, resource_key) =>
+                     (!item.cost)
+                         ? ''
+                         :
+                                <div className="row" key={resource_key}>
+                                <div className="col-sm-6 infoBar">{resource_key}</div>
+                                <div className="col-sm-6 infoBar">{state[resource_key]} / {value}</div>
+                            </div>
+                        )}
+
             </Tooltip>;
 
 
@@ -206,6 +209,51 @@ class App extends Component {
                     </div>
 
                     <div className="flex-element">
+                        <h3>Clickers</h3>
+                        {_.map(clickers, (item, key) =>
+                            (item.locked && item.locked(this.state))
+                                ? ''
+                                :
+                                <div key={key}>
+                                    <OverlayTrigger delay={150} placement="right" overlay={tooltip(this.state, item)}>
+                                        <button
+                                            className={(item.cost ? this.isEnough(this.state, item.cost) ? '' : 'disabled' : '')}
+                                            onClick={() => { this.onClickWrapper(item); }}>
+                                            {item.name}
+                                        </button>
+                                    </OverlayTrigger>
+                                </div>
+                        )}
+                    </div>
+
+
+                    <div className="flex-element">
+                        <h3>Automation</h3>
+                        {_.map(automators, (item, key) =>
+                            (item.locked && item.locked(this.state))
+                                ? ''
+                                :
+                                <div key={key}>
+                                    <OverlayTrigger delay={150} placement="left" overlay={tooltip(this.state, item)}>
+                                        <span>
+                                            {state[key] ? <span>{item.name}: {state[key]}</span> : ''}
+                                            {<button
+                                                className={(item.cost ? this.isEnough(this.state, item.cost) ? '' : 'disabled' : '')}
+                                                onClick={() => { this.onClickWrapper(item); }}>
+                                                +
+                                            </button>}
+                                            {<button
+                                                className={(item.cost ? this.isEnough(this.state, item.cost) ? '' : 'disabled' : '')}
+                                                onClick={(state) => { state[key]-=1 ; console.log(state[key])}}>
+                                                -
+                                            </button>}
+                                        </span>
+                                    </OverlayTrigger>
+                                </div>
+                        )}
+                    </div>
+
+                    <div className="flex-element">
                         <h3>OneClickers</h3>
                         {_.map(oneclickers, (item, key) =>
                             (item.locked && item.locked(this.state))
@@ -225,43 +273,7 @@ class App extends Component {
                                 </div>
                         )}
                     </div>
-                    <div className="flex-element">
-                        <h3>Clickers</h3>
-                        {_.map(clickers, (item, key) =>
-                            (item.locked && item.locked(this.state))
-                                ? ''
-                                :
-                                <div key={key}>
-                                    <OverlayTrigger delay={150} placement="right" overlay={tooltip(this.state, item)}>
-                                        <button
-                                            className={(item.cost ? this.isEnough(this.state, item.cost) ? '' : 'disabled' : '')}
-                                            onClick={() => { this.onClickWrapper(item); }}>
-                                            {item.name}
-                                        </button>
-                                    </OverlayTrigger>
-                                </div>
-                        )}
-                    </div>
-                    <div className="flex-element">
-                        <h3>Automation</h3>
-                        {_.map(automators, (item, key) =>
-                            (item.locked && item.locked(this.state))
-                                ? ''
-                                :
-                                <div key={key}>
-                                    <OverlayTrigger delay={150} placement="left" overlay={tooltip(this.state, item)}>
-                                        <span>
-                                            {state[key] ? <span>{item.name}: {state[key]}</span> : ''}
-                                            {<button
-                                                className={(item.cost ? this.isEnough(this.state, item.cost) ? '' : 'disabled' : '')}
-                                                onClick={() => { this.onClickWrapper(item); }}>
-                                                Buy {item.name}
-                                            </button>}
-                                        </span>
-                                    </OverlayTrigger>
-                                </div>
-                        )}
-                    </div>
+
                 </div>
 
                  <div className="flex-container-row">

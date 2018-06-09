@@ -6,7 +6,7 @@ import {genTarget} from '../game/targets';
 
 const default_state = {
 
-    strings: 1000,
+    strings: 0,
 
     up_quarks: 0,
     down_quarks: 0,

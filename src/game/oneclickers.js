@@ -2,7 +2,8 @@
 
 export const oneclickers = {
     fluctuating: {
-        name: 'Fluctuating', cost: {strings: 10}, locked: false, onClick: (state) => {
+        name: 'String convertor', text: 'Strings will automatically convert into quarks or leptons',
+        cost: {strings: 10}, locked: false, onClick: (state) => {
             state.fluctuating = true;
             return state;
         }
