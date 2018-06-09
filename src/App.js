@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import _ from 'lodash';
-import { Tooltip, OverlayTrigger, Modal } from 'react-bootstrap';
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import Footer from './footer.js'
-
 import './css/App.css';
 
-import {game_name} from './game/app_config';
+import {game_name, SAMPLE_LIBRARY} from './game/app_config';
 import {getDefaultState} from './game/default_state';
 import {frame} from './game/frame';
 import {tick} from './game/tick';
@@ -19,6 +18,9 @@ import {modules} from './game/modules';
 import {upgrades} from './game/upgrades';
 import Popup from "./utils/Popup/Popup";
 
+require('@mohayonao/web-audio-api-shim');
+
+var audioContext = null;
 
 class App extends Component {
     constructor(props) {
@@ -43,6 +45,7 @@ class App extends Component {
         var app_state = JSON.parse(localStorage.getItem(game_name+"_app_state"));
         this.setState(app_state ? app_state : getDefaultState());
         this.playGame();
+        audioContext = new AudioContext();
     }
 
     playGame() {
@@ -141,6 +144,25 @@ class App extends Component {
         this.popupHandler.createPopup(`POPUP №${this.i}`, <div>{'This is... You guessed it. A POPUP!!!'}</div>);
     }
 
+    playSound(environment) {
+        let path = SAMPLE_LIBRARY[environment].file;
+
+        fetch(path)
+            .then(response => {response.arrayBuffer()} )
+            .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+            .then(audioBuffer => {
+
+                let sourceNode = audioContext.createBufferSource();
+                sourceNode.buffer = audioBuffer;
+                sourceNode.loop = false;
+                sourceNode.connect(audioContext.destination);
+                sourceNode.start();
+
+            })
+            .catch(e => console.error(e));
+    };
+
+
     render() {
         let state = this.state;
 
@@ -166,6 +188,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Popup ref={(p) => this.popupHandler = p} />
+                <button onClick={() => this.playSound('Ambient')}>Play sound</button>
                 <button onClick={() => this.createPopup()}>MakeNewPopup</button>
 
                 <div className="flex-element flex-container-row">

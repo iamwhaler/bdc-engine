@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mohayonao/web-audio-api-shim": "^0.3.0",
     "classnames": "^2.2.5",
+    "install": "^0.11.0",
     "lodash": "^4.17.5",
+    "npm": "^6.0.1",
     "react": "^16.3.2",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.3.2",
