@@ -8,8 +8,8 @@ export const data = {
     },
 
     atoms: {
-        hydrogen: {name: 'Hydrogen atoms'},
-        helium: {name: 'Helium atoms'},
+        hydrogen: {name: 'Hydrogen'},
+        helium: {name: 'Helium'},
     },
 
     simple_molecules: {

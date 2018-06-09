@@ -7,13 +7,16 @@ import {genTarget} from '../game/targets';
 const default_state = {
 
     strings: 0,
-
     up_quarks: 0,
     down_quarks: 0,
     electrons: 0,
 
     hydrogen: 0,
     helium: 0,
+
+    H2: 0,
+    He2: 0,
+    N2: 0,
 
     strings_rule: 0,
     up_quarks_rule: 0,
@@ -55,6 +58,8 @@ const default_state = {
     armor_upgrade: 0,
 
     mode: 'slow',
+
+    temperature: 356,
 
 
 

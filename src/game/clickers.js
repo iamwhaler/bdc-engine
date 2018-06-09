@@ -19,7 +19,7 @@ export const clickers = {
         }
     },
     down_quarks_clicker: {
-        name: 'Gain Down Quark', cost: {up_quarks: 4}, locked: (state) => !state.up_quarks_miner, onClick: (state) => {
+        name: 'Gain Down Quark', cost: {strings: 4}, locked: (state) => !state.up_quarks_miner, onClick: (state) => {
             state.down_quarks++;
             return state;
         }

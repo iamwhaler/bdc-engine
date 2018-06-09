@@ -172,6 +172,10 @@ class App extends Component {
                 <button onClick={() => this.createPopup()}>MakeNewPopup</button>
                 <h2>Particles Inkremental</h2>
 
+                <div style={{color: '#982727'}}>
+                    Temperature: {state.temperature.toFixed(1)}
+                </div>
+
 
                 <div className="flex-container-row resources">
                         <div className="flex-element">

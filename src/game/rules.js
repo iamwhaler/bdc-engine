@@ -36,5 +36,12 @@ export const rules = {
             }
             return state;
         }
+    },
+
+    temperature_rule: {
+        onTick: (state) => {
+            state.temperature+= _.random(-10, state.strings);
+            return state;
+        }
     }
 };
