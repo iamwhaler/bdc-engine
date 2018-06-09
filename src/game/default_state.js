@@ -12,6 +12,9 @@ const default_state = {
     down_quarks: 0,
     electrons: 0,
 
+    hydrogen: 0,
+    helium: 0,
+
     strings_rule: 0,
     up_quarks_rule: 0,
     down_quarks_rule: 0,
