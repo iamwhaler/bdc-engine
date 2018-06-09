@@ -236,17 +236,24 @@ class App extends Component {
                                 <div key={key}>
                                     <OverlayTrigger delay={150} placement="left" overlay={tooltip(this.state, item)}>
                                         <span>
-                                            {state[key] ? <span>{item.name}: {state[key]}</span> : ''}
+
+                                           <span>{item.name}: {state[key]}</span>
+
+
+
                                             {<button
                                                 className={(item.cost ? this.isEnough(this.state, item.cost) ? '' : 'disabled' : '')}
                                                 onClick={() => { this.onClickWrapper(item); }}>
                                                 +
                                             </button>}
+
+
                                             {<button
                                                 className={(item.cost ? this.isEnough(this.state, item.cost) ? '' : 'disabled' : '')}
-                                                onClick={(state) => { state[key]-=1 ; console.log(state[key])}}>
+                                                onClick={() => { state[key]-=1 ; console.log(state[key])}}>
                                                 -
                                             </button>}
+
                                         </span>
                                     </OverlayTrigger>
                                 </div>
