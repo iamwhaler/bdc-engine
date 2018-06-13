@@ -5,6 +5,8 @@ export const data = {
         up_quarks: {name: 'Up Quarks'},
         down_quarks: {name: 'Down Quarks'},
         electrons: {name: 'Electrons'},
+        protons: {name: 'Protons'},
+        neutrons: {name: 'Neutrons'}
     },
 
     atoms: {

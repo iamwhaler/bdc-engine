@@ -158,7 +158,7 @@ class App extends Component {
                          :
                                 <div className="row" key={resource_key}>
                                 <div className="col-sm-6 infoBar">{resource_key}</div>
-                                <div className="col-sm-6 infoBar">{state[resource_key]} / {value}</div>
+                                <div className="col-sm-6 infoBar">{value} / {state[resource_key]} </div>
                             </div>
                         )}
 
@@ -210,20 +210,27 @@ class App extends Component {
                 <div className="flex-container-row">
                     <div className="flex-element">
                         <h3>Clickers</h3>
-                        {_.map(clickers, (item, key) =>
-                            (item.locked && item.locked(this.state))
-                                ? ''
-                                :
-                                <div key={key}>
-                                    <OverlayTrigger delay={150} placement="right" overlay={tooltip(this.state, item)}>
-                                        <button
-                                            className={(item.cost ? this.isEnough(this.state, item.cost) ? '' : 'disabled' : '')}
-                                            onClick={() => { this.onClickWrapper(item); }}>
-                                            {item.name}
-                                        </button>
-                                    </OverlayTrigger>
-                                </div>
-                        )}
+
+                            <div className="flex-container-column">
+                                {_.map(clickers, (item, key) =>
+                                    (item.locked && item.locked(this.state))
+                                        ? ''
+                                        :
+                                        <div key={key}>
+                                            <OverlayTrigger delay={150} placement="right"
+                                                            overlay={tooltip(this.state, item)}>
+                                                <button
+                                                    className={(item.cost ? this.isEnough(this.state, item.cost) ? '' : 'disabled' : '')}
+                                                    onClick={() => {
+                                                        this.onClickWrapper(item);
+                                                    }}>
+                                                    {item.name}
+                                                </button>
+                                            </OverlayTrigger>
+                                        </div>
+                                )}
+                            </div>
+
                     </div>
 
 
@@ -235,7 +242,7 @@ class App extends Component {
                                 :
                                 <div key={key} className="flex-container-row automation">
 
-                                       <div className="flex-element" /*style={{border: '0.5px solid #BDBDBD'}}*/>
+                                       <div className="flex-element">
 
                                         <OverlayTrigger delay={150} placement="left" overlay={tooltip(this.state, item)}>
                                         <span>

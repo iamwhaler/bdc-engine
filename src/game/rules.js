@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import {frame} from "./frame";
 
 export const rules = {
 
@@ -45,3 +46,4 @@ export const rules = {
         }
     }
 };
+
