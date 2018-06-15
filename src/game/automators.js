@@ -50,10 +50,8 @@ export const automators = {
             return state;
         },
         onTick: (state) => {
-            if(state.hydrogen_miner) {
                 state.hydrogen += Math.round(_.random(0.75, state.hydrogen_miner / state.temperature));
                 return state;
-            }
         }
     }
 };
