@@ -1,4 +1,3 @@
-
 import _ from 'lodash';
 
 import {rules} from './rules';
@@ -11,7 +10,8 @@ export const tick = (state) => {
     });
 
     _.each(automators, (item) => {
-        if (item.onTick) state = item.onTick(state);
+      if (item.onTick) state = item.onTick(state);
+
     });
 
     console.log(state.target);

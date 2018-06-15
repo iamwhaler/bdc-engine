@@ -1,5 +1,7 @@
 import _ from 'lodash';
 
+// onClick effect costs item.cost
+
 export const automators = {
     strings_miner: {
         name: 'Strings Miner',
@@ -25,12 +27,33 @@ export const automators = {
     },
 
     down_quarks_miner: {
-        name: 'Down Quarks Miner', cost: {down_quarks: 80}, locked: (state) => !state.strings_miner, onClick: (state) => {
+        name: 'Down Quarks Miner',
+        cost: {down_quarks: 80},
+        locked: (state) => !state.strings_miner,
+        onClick: (state) => {
             state.down_quarks_miner++;
             return state;
-        }, onTick: (state) => {
+        },
+        onTick: (state) => {
             state.down_quarks += Math.round(_.random(0, state.down_quarks_miner / 2));
             return state;
+        }
+    },
+
+    hydrogen_miner: {
+        name: 'Hydrogen Miner',
+        text: 'The only way to get Hydrogen in this Universe',
+        cost: {electrons: 10, protons: 5, neutrons: 17.5},
+        locked: (state) => false,
+        onClick: (state) => {
+            state.hydrogen_miner++;
+            return state;
+        },
+        onTick: (state) => {
+            if(state.hydrogen_miner) {
+                state.hydrogen += Math.round(_.random(0.75, state.hydrogen_miner / state.temperature));
+                return state;
+            }
         }
     }
 };

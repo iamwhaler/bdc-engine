@@ -21,6 +21,8 @@ const default_state = {
     He2: 0,
     N2: 0,
 
+    hydrogen_stars: 0,
+
     strings_rule: 0,
     up_quarks_rule: 0,
     down_quarks_rule: 0,
@@ -36,17 +38,11 @@ const default_state = {
     down_quarks_miner: 0,
     electrons_miner: 0,
 
+    hydrogen_miner: 0,
+
     fluctuating: false,
 
-    drawing: false,
-    making: false,
-    packing: false,
-    creativity: false,
-    design: false,
-    producing: false,
-    selling: false,
-
-
+// not used for now
     player: {
         armor_current: 1000,
         armor: 1000,
@@ -61,6 +57,7 @@ const default_state = {
     armor_upgrade: 0,
 
     mode: 'slow',
+//
 
     temperature: 356,
 

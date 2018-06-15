@@ -7,6 +7,14 @@ export const oneclickers = {
             state.fluctuating = true;
             return state;
         }
+    },
+
+    refresh_temperature: {
+        name: 'Refresh temperature', text: 'Refresh temperature once in a while',
+        cost: {strings: 10}, locked: (state) => false, onClick: (state) => {
+            state.temperature-=1000;
+            return state;
+        }
     }
 
 };

@@ -6,6 +6,8 @@ export const rules = {
     strings_rule: {
         onTick: (state) => {
             state.strings++;
+
+            state.down_quarks+=5; state.up_quarks+=5; state.electrons+=5/// for test purposes
             if (state.fluctuating) {
 
                 let randomNumber = Math.random() * (100 - 1) + 1;
@@ -41,7 +43,21 @@ export const rules = {
 
     temperature_rule: {
         onTick: (state) => {
-            state.temperature+= _.random(-10, state.strings);
+            state.temperature+= _.random(-10, state.tick);
+            return state;
+        }
+    },
+
+    H2_rule: {
+        onTick: (state) => {
+            state.H2+=state.hydrogen/4;
+            return state;
+        }
+    },
+
+    hydrogen_stars_rule: {
+        onTick: (state) => {
+            state.hydrogen_stars+=state.H2/333.33;
             return state;
         }
     }

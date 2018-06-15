@@ -19,4 +19,8 @@ export const data = {
         He2: {name: 'He2'},
         N2: {name: 'N2'},
     },
+
+    stars: {
+        hydrogen_stars: {name: 'Hydrogen stars'}
+    }
 };

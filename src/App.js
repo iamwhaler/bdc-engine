@@ -191,7 +191,7 @@ class App extends Component {
                             <h6>Atoms</h6>
                             { _.map(data.atoms, (item, key) =>
                                 <div key={key}>
-                                    {item.name}: {state[key]}
+                                    {item.name}: {state[key].toFixed(2)}
                                 </div>
                             )}
                         </div>
@@ -200,10 +200,22 @@ class App extends Component {
                             <h6>Simple molecules</h6>
                             { _.map(data.simple_molecules, (item, key) =>
                                 <div key={key}>
-                                    {item.name}: {state[key]}
+                                    {item.name}: {state[key].toFixed(2)}
                                 </div>
                             )}
                         </div>
+
+                    <div className="flex-element">
+                        <h6>Stars</h6>
+                        { _.map(data.stars, (item, key) =>
+                            <div key={key}>
+                                {item.name}: {state[key].toFixed(2)}
+                            </div>
+                        )}
+                    </div>
+
+
+
                 </div>
 
 
@@ -297,6 +309,8 @@ class App extends Component {
 
                 </div>
 
+
+
                  <div className="flex-container-row">
 
                     <div className="flex-element flex-container-column" style={{height: '100%'}}>
@@ -356,6 +370,7 @@ class App extends Component {
                     </div>
 
                 </div>
+
 
 
                 <div className="flex-element flex-container-row">
